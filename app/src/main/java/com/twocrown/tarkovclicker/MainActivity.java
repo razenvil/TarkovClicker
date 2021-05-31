@@ -381,7 +381,7 @@ public class MainActivity extends AppCompatActivity {
         super.onDestroy();
         ContentValues cv = new ContentValues();
         SQLiteDatabase db = progressDB.getWritableDatabase();
-        /*db.execSQL("DELETE FROM progressDB");*/
+        db.execSQL("DELETE FROM progressDB");
         cv.put("EnemyHP",enemy1.getHp());
         cv.put("EnemyMG",enemy1.getMoneygain());
         cv.put("EnemyLVL",enemy1.getLvl());
@@ -389,7 +389,7 @@ public class MainActivity extends AppCompatActivity {
         cv.put("PEDPS",playerEntity1.getDps());
         cv.put("PEDPC",playerEntity1.getDmg());
         cv.put("PEMONEY",playerEntity1.getMoney());
-        if(operativniki[0].alreadybuyed){
+       /* if(operativniki[0].alreadybuyed){
             cv.put("ПрапорBUYED" , 1);
         }else{
             cv.put("ПрапорBUYED" , 0);
@@ -458,7 +458,7 @@ public class MainActivity extends AppCompatActivity {
         cv.put("P228PRICE", characters[1].price );
         cv.put("MP9PRICE", characters[2].price);
         cv.put("MP5KPRICE", characters[3].price);
-        cv.put("AK74price" , characters[4].price);
+        cv.put("AK74price" , characters[4].price);*/
 
         long rowid = db.insert("progressDB", null ,cv);
 
