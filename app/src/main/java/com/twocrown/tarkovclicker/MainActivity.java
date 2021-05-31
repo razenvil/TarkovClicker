@@ -1,13 +1,10 @@
 package com.twocrown.tarkovclicker;
 
 import android.content.ContentValues;
-import android.content.Context;
-import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.media.MediaPlayer;
 import android.os.CountDownTimer;
-import android.preference.PreferenceManager;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -58,6 +55,7 @@ public class MainActivity extends AppCompatActivity {
     public Integer DamageAtAalll;
     public operativnik[] operativniki , characters;
     public static final String APP_PREFERENCES = "mysettings";
+    public Enemy enemyTmp;
 
 
     operativnik[] createOperativniki(String string1 , String string2 , String string3, String string4 ,String string5) {
@@ -74,12 +72,12 @@ public class MainActivity extends AppCompatActivity {
         int[] lvlArr = {1, 1, 1, 1, 1};
 
         for (int i = 0; i < arr.length; i++) {
-            operativnik month = new operativnik();
-            month.month = nameArr[i];
-            month.price = priceArr[i];
-            month.lvl = lvlArr[i];
-            month.dmg = dmgArr[i];
-            arr[i] = month;
+            operativnik person = new operativnik();
+            person.name = nameArr[i];
+            person.price = priceArr[i];
+            person.lvl = lvlArr[i];
+            person.dmg = dmgArr[i];
+            arr[i] = person;
         }
         return arr;
     }
@@ -213,6 +211,15 @@ public class MainActivity extends AppCompatActivity {
                 if(enemy1.getLvl() > 10){
                     timerCreated = false;
                     mTimer.setText(null);
+                }
+                if(enemy1.getLvl() == saveLvlPerson[saveLvl]){
+                    enemyTmp = new Enemy();
+                    enemyTmp.lvl = enemy1.lvl;
+                    enemyTmp.hp = enemy1.tmpHp;
+                    enemyTmp.moneygain = enemy1.moneygain;
+                    enemyTmp.tmpHp = enemy1.tmpHp;
+                    enemyTmp.lvl = enemy1.lvl;
+                    enemyTmp.podLvl = 1;
                 }
             }
 
@@ -507,12 +514,22 @@ public class MainActivity extends AppCompatActivity {
             }if(!timerCreated){
                 mTimer.setText(null);
                 bossText.setText(null);
+                currentBoss = false;
             }
         }
 
         @Override
         public void onFinish() {
-
+            if (enemy1.hp > 1){
+                enemy1.hp = enemyTmp.tmpHp;
+                enemy1.lvl = enemyTmp.lvl;
+                enemy1.podLvl = enemyTmp.podLvl;
+                enemy1.moneygain = enemyTmp.moneygain;
+                enemy1.tmpHp = enemyTmp.tmpHp;
+                mTimer.setText(null);
+                bossText.setText(null);
+                timerCreated = false;
+            }
         }
 
     }

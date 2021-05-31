@@ -3,7 +3,7 @@ package com.twocrown.tarkovclicker.Models;
 public class operativnik {
     public static final double PERCENT_CLICKER = 1.35;
 
-    public String month = ""; // Название месяца
+    public String name = ""; // Название месяца
     public Integer price = 0; // Средняя температура
     public int lvl = 0; // Количество дней
     public int dmg = 0;
@@ -17,8 +17,8 @@ public class operativnik {
         month.price = i;
     }
 
-    public void setMonth(String month) {
-        this.month = month;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public void setPrice(Integer price) {

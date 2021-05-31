@@ -15,8 +15,6 @@ import com.twocrown.tarkovclicker.Models.PlayerEntity;
 import com.twocrown.tarkovclicker.Models.operativnik;
 import com.twocrown.tarkovclicker.R;
 
-import static java.security.AccessController.getContext;
-
 public class DPSOperativnikiAdapter extends ArrayAdapter<operativnik> {
 
     public DPSOperativnikiAdapter(Activity context, operativnik[] arr , PlayerEntity playerEntity) {
@@ -38,23 +36,23 @@ public class DPSOperativnikiAdapter extends ArrayAdapter<operativnik> {
         }
 
 // Заполняем адаптер
-        ((TextView) convertView.findViewById(R.id.textView11)).setText(month.month);
+        ((TextView) convertView.findViewById(R.id.textView11)).setText(month.name);
         ((TextView) convertView.findViewById(R.id.priceTextView1)).setText("Цена:" + month.price);
         Button buy = convertView.findViewById(R.id.button11);
 
-        if(month.month == "Прапор"){
+        if(month.name == "Прапор"){
             ((ImageView) convertView.findViewById(R.id.imageView211)).setBackgroundResource(R.drawable.prapor);
         }
-        if(month.month == "Дилер"){
+        if(month.name == "Дилер"){
             ((ImageView) convertView.findViewById(R.id.imageView211)).setBackgroundResource(R.drawable.dealer);
         }
-        if(month.month == "Лыжник"){
+        if(month.name == "Лыжник"){
             ((ImageView) convertView.findViewById(R.id.imageView211)).setBackgroundResource(R.drawable.lizhnikmain);
         }
-        if(month.month == "Миротворец"){
+        if(month.name == "Миротворец"){
             ((ImageView) convertView.findViewById(R.id.imageView211)).setBackgroundResource(R.drawable.peacekeeper);
         }
-        if(month.month == "Охотник"){
+        if(month.name == "Охотник"){
             ((ImageView) convertView.findViewById(R.id.imageView211)).setBackgroundResource(R.drawable.hunter);
         }
         View finalConvertView = convertView;

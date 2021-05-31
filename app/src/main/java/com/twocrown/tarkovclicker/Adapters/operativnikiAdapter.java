@@ -36,23 +36,23 @@ public class operativnikiAdapter extends ArrayAdapter<operativnik> {
         }
 
 // Заполняем адаптер
-        ((TextView) convertView.findViewById(R.id.textView)).setText(month.month);
+        ((TextView) convertView.findViewById(R.id.textView)).setText(month.name);
         ((TextView) convertView.findViewById(R.id.priceTextView)).setText("Цена:" + month.price);
         Button buy = convertView.findViewById(R.id.button);
 
-        if(month.month == "Glock-18"){
+        if(month.name == "Glock-18"){
             ((ImageView) convertView.findViewById(R.id.imageView2)).setBackgroundResource(R.drawable.glock18);
         }
-        if(month.month == "P228"){
+        if(month.name == "P228"){
             ((ImageView) convertView.findViewById(R.id.imageView2)).setBackgroundResource(R.drawable.p228);
         }
-        if(month.month == "MP9"){
+        if(month.name == "MP9"){
             ((ImageView) convertView.findViewById(R.id.imageView2)).setBackgroundResource(R.drawable.mp9);
         }
-        if(month.month == "MP5K"){
+        if(month.name == "MP5K"){
             ((ImageView) convertView.findViewById(R.id.imageView2)).setBackgroundResource(R.drawable.mp5k);
         }
-        if(month.month == "AK74"){
+        if(month.name == "AK74"){
             ((ImageView) convertView.findViewById(R.id.imageView2)).setBackgroundResource(R.drawable.ak74new);
         }
         View finalConvertView = convertView;

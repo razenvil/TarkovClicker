@@ -1,8 +1,6 @@
 package com.twocrown.tarkovclicker.Adapters;
 
 import android.content.Context;
-import android.content.Intent;
-import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -34,23 +32,23 @@ public class DPSOperativnikAdapterUpdate extends ArrayAdapter<operativnik> {
         if (convertView == null) {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.dps_layout, null);
         }
-        ((TextView) convertView.findViewById(R.id.textView11)).setText(month.month);
+        ((TextView) convertView.findViewById(R.id.textView11)).setText(month.name);
         ((TextView) convertView.findViewById(R.id.priceTextView1)).setText("Цена:" + month.price);
         Button buy = convertView.findViewById(R.id.button11);
 
-        if(month.month == "Прапор"){
+        if(month.name == "Прапор"){
             ((ImageView) convertView.findViewById(R.id.imageView211)).setBackgroundResource(R.drawable.prapor);
         }
-        if(month.month == "Дилер"){
+        if(month.name == "Дилер"){
             ((ImageView) convertView.findViewById(R.id.imageView211)).setBackgroundResource(R.drawable.dealer);
         }
-        if(month.month == "Лыжник"){
+        if(month.name == "Лыжник"){
             ((ImageView) convertView.findViewById(R.id.imageView211)).setBackgroundResource(R.drawable.lizhnikmain);
         }
-        if(month.month == "Миротворец"){
+        if(month.name == "Миротворец"){
             ((ImageView) convertView.findViewById(R.id.imageView211)).setBackgroundResource(R.drawable.peacekeeper);
         }
-        if(month.month == "Охотник"){
+        if(month.name == "Охотник"){
             ((ImageView) convertView.findViewById(R.id.imageView211)).setBackgroundResource(R.drawable.hunter);
         }
         View finalConvertView = convertView;
