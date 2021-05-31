@@ -148,14 +148,14 @@ public class MainActivity extends AppCompatActivity {
         SQLiteDatabase db = progressDB.getWritableDatabase();
         Cursor cursor = db.query("progressDB" , null , null , null ,null ,null , null);
         if(cursor.moveToFirst()){
-/*            enemy1.hp = cursor.getInt(cursor.getColumnIndex("EnemyHP"));
+           enemy1.hp = cursor.getInt(cursor.getColumnIndex("EnemyHP"));
             enemy1.podLvl = cursor.getInt(cursor.getColumnIndex("EnemyPODLVL"));
             enemy1.lvl = cursor.getInt(cursor.getColumnIndex("EnemyLVL"));
             enemy1.moneygain = cursor.getInt(cursor.getColumnIndex("EnemyMG"));
             playerEntity1.dps = cursor.getInt(cursor.getColumnIndex("PEDPS"));
             playerEntity1.dmg = cursor.getInt(cursor.getColumnIndex("PEDPC"));
             playerEntity1.money = cursor.getInt(cursor.getColumnIndex("PEMONEY"));
-            operativniki[0].setAlreadybuyed(cursor.getInt(cursor.getColumnIndex("ПрапорBUYED")) > 0);
+/*            operativniki[0].setAlreadybuyed(cursor.getInt(cursor.getColumnIndex("ПрапорBUYED")) > 0);
             operativniki[1].setAlreadybuyed(cursor.getInt(cursor.getColumnIndex("ДилерBUYED")) > 0);
             operativniki[2].setAlreadybuyed(cursor.getInt(cursor.getColumnIndex("ЛыжникBUYED")) > 0);
             operativniki[3].setAlreadybuyed(cursor.getInt(cursor.getColumnIndex("МиротворецBUYED")) > 0);
